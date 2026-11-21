@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La mia wishlist di Natale 🎄</title>
+<meta name="description" content="Le mie idee regalo per Natale: scarta un pacco per vedere i dettagli.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="it_IT">
+<meta property="og:title" content="La mia wishlist di Natale 🎄">
+<meta property="og:description" content="Scarta i pacchi, gioca con il pupazzo di neve e apri il calendario dell’Avvento.">
+<!-- Per avere anche l’immagine nell’anteprima di WhatsApp, quando sai l’indirizzo del sito aggiungi:
+<meta property="og:image" content="https://TUOUTENTE.github.io/NOMEREPO/img/anteprima.jpg"> -->
+<meta name="theme-color" content="#101b34">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎄</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Figtree:wght@400;600;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<style>
+:root{--night:#101b34;--night2:#1b2d55;--snow:#eef3fa;--berry:#d2334f;--gold:#f0b94a;--ink:#16213a;--mut:#5b6784;--line:#d8e0ee}
+*{box-sizing:border-box}
+html{scroll-padding-top:16px}
+body{margin:0;background:var(--snow);color:var(--ink);font-family:Figtree,system-ui,sans-serif;line-height:1.5}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;margin:0}
+button,a{font:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;background:radial-gradient(120% 90% at 80% 0%,var(--night2),var(--night) 65%);color:#fff;padding:56px 20px 64px}
+#snow{position:absolute;inset:0;width:100%;height:100%}
+.hero-in{position:relative;max-width:1080px;margin:0 auto}
+h1{font-size:clamp(38px,8vw,76px);font-weight:800;line-height:1.02;letter-spacing:-.02em;max-width:11em}
+.sub{max-width:34em;color:#c9d6f0;margin:16px 0 28px;font-size:clamp(16px,2.4vw,19px)}
+.cd{display:flex;gap:10px;flex-wrap:wrap}
+.cd div{min-width:72px;padding:10px 12px;border-radius:14px;background:#ffffff14;border:1px solid #ffffff26;text-align:center}
+.cd b{display:block;font-family:Fraunces,serif;font-size:30px;line-height:1.1;font-variant-numeric:tabular-nums}
+.cd span{font-size:13px;color:#b7c5e4}
+.cd.done{font-family:Fraunces,serif;font-size:28px}
+
+/* Barra strumenti */
+main{max-width:1080px;margin:0 auto;padding:26px 20px 60px}
+.bar{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:22px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:#fff;color:var(--ink);padding:8px 14px;border-radius:999px;cursor:pointer;font-weight:600;transition:background .2s,color .2s,transform .2s}
+.chip:hover{transform:translateY(-2px)}
+.chip[aria-pressed=true]{background:var(--night);border-color:var(--night);color:#fff}
+.rand{border:0;background:var(--berry);color:#fff;padding:9px 16px;border-radius:12px;font-weight:700;cursor:pointer;box-shadow:0 3px 0 #9b2038;transition:transform .15s,box-shadow .15s}
+.rand:active{transform:translateY(3px);box-shadow:none}
+.prog{color:var(--mut);font-size:14px;margin:-8px 0 20px}
+
+/* Regali */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px;align-items:start}
+.gift{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 8px 22px #1b2d5514;transition:box-shadow .3s,transform .3s}
+.gift:hover{transform:translateY(-3px)}
+.gift.open{box-shadow:0 14px 34px #1b2d5530}
+.paper{position:relative;display:block;width:100%;height:136px;border:0;padding:0;cursor:pointer;overflow:hidden;
+ background:repeating-linear-gradient(135deg,var(--c) 0 13px,color-mix(in srgb,var(--c) 84%,#000) 13px 26px);transition:height .45s cubic-bezier(.3,1.3,.5,1)}
+.open .paper{height:92px}
+.rv,.rh{position:absolute;background:linear-gradient(90deg,#e0a62f,var(--gold) 50%,#e0a62f);transition:transform .5s ease}
+.rv{left:50%;top:0;bottom:0;width:24px;margin-left:-12px;transform-origin:top}
+.rh{top:50%;left:0;right:0;height:24px;margin-top:-12px;transform-origin:left;background:linear-gradient(180deg,#e0a62f,var(--gold) 50%,#e0a62f)}
+.open .rv{transform:scaleY(0)}
+.open .rh{transform:scaleX(0)}
+.tag{position:absolute;left:50%;top:50%;width:62px;height:62px;margin:-31px 0 0 -31px;border-radius:50%;background:#fff;display:grid;place-items:center;font-size:32px;box-shadow:0 4px 12px #0003}
+.open .tag{animation:pop .6s ease}
+@keyframes pop{0%{transform:scale(.6) rotate(-20deg)}60%{transform:scale(1.25) rotate(8deg)}100%{transform:none}}
+.stamp{position:absolute;right:-34px;top:14px;background:#fff;color:var(--ink);font-size:12px;font-weight:700;padding:3px 40px;transform:rotate(35deg);z-index:2}
+.info{padding:14px 16px 16px}
+.cat{font-size:13px;color:var(--mut);font-weight:600}
+.info h3{font-size:21px;font-weight:600;line-height:1.2;margin:2px 0 6px}
+.love{color:var(--berry);letter-spacing:3px;font-size:15px}
+.love i{font-style:normal;color:#d9dfec}
+.more{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s ease}
+.open .more{grid-template-rows:1fr}
+.more>div{overflow:hidden}
+.more p{margin:12px 0 8px;color:#3c486a;font-size:15px}
+.price{font-weight:700;font-size:17px}
+.acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.acts a{text-decoration:none;font-weight:700;font-size:14px;padding:8px 13px;border-radius:10px;background:var(--night);color:#fff}
+.acts a.ghost{background:#fff;color:var(--night);border:1px solid var(--line)}
+.preso .paper{filter:grayscale(.85) opacity(.7)}
+.preso .info h3{text-decoration:line-through;text-decoration-color:#0004}
+footer{text-align:center;color:var(--mut);font-size:14px;padding:0 20px 36px}
+#confetti{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+@media(max-width:520px){.hero{padding:44px 18px 48px}.cd div{min-width:64px}}
+</style>
+<link rel="stylesheet" href="giochi.css">
+</head>
+<body>
+<header class="hero">
+ <canvas id="snow" aria-hidden="true"></canvas>
+ <div class="hero-in">
+  <div class="hero-txt">
+   <h1>La mia wishlist di Natale</h1>
+   <p class="sub">Qualche idea per il regalo giusto. Tocca un pacco per scartarlo e vedere i dettagli.</p>
+   <div class="cd" id="cd" aria-live="off"></div>
+   <div class="nav">
+    <button class="nb hot" id="openLett" type="button">✉️ Leggi la mia letterina</button>
+    <a class="nb" href="#avvento">🎄 Calendario dell’Avvento</a>
+    <a class="nb" href="#lista">🎁 La lista</a>
+   </div>
+  </div>
+  <div class="game">
+   <div class="gh"><span id="pp">Punti: 0</span><span id="pv">❤️❤️❤️</span></div>
+   <canvas id="pupazzo" width="360" height="420" tabindex="0" aria-label="Mini gioco del pupazzo di neve: trascina il dito per muoverlo"></canvas>
+  </div>
+ </div>
+</header>
+
+<main id="lista">
+ <div class="bar">
+  <div class="chips" id="chips" role="group" aria-label="Filtra per categoria"></div>
+  <button class="rand" id="rand" type="button">Scegline uno a caso</button>
+ </div>
+ <p class="prog" id="prog"></p>
+ <section class="grid" id="grid"></section>
+</main>
+
+<section class="adv" id="avvento"><div class="wrap">
+ <h2>Calendario dell’Avvento</h2>
+ <p class="sub2">Ogni giorno di dicembre si apre una casella. Il 24 c’è una sorpresa da giocare.</p>
+ <div class="days" id="days"></div>
+</div></section>
+
+<footer>Fatto con tanta neve e un po’ di JavaScript ❄️<br>Gestito da GitHub</footer>
+<canvas id="confetti" aria-hidden="true"></canvas>
+<dialog id="dlg"><div id="dlb"></div><form method="dialog"><button class="nb chiudi">Chiudi</button></form></dialog>
+<dialog id="lett"><button class="envb" id="envb" type="button">✉️<span>Tocca per aprire</span></button><article class="ltr" id="ltr" hidden></article><form method="dialog"><button class="nb chiudi">Chiudi</button></form></dialog>
+<script src="giochi.js" defer></script>
+
+<script>
+/* =====================================================================
+   COME AGGIUNGERE UN REGALO
+   Copia una riga qui sotto, incollala in fondo alla lista (prima di "];")
+   e cambia i valori. Poi salva il file su GitHub: il sito si aggiorna da solo.
+
+   priorita: 3 = lo desidero molto, 2 = medio, 1 = se capita
+   link:     indirizzo del prodotto (oppure "" se non c'è)
+   img:      foto nella cartella img/ (se il file manca, la foto non si vede e non succede nulla)
+   preso:    metti true quando qualcuno l’ha già comprato
+   ===================================================================== */
+
+const REGALI = [
+ {img:"img/soldini.jpg",nome:"Soldini 💸",categoria:"Jolly",emoji:"💸",descrizione:"Un contributo libero da mettere da parte per i miei progetti.",prezzo:"Indefinito",priorita:3,link:"",preso:false},
+ {img:"img/massaggio.jpg",nome:"Massaggio corpo",categoria:"Benessere",emoji:"🧖",descrizione:"Un momento di relax con un massaggio corpo.",prezzo:"Indefinito",priorita:2,link:"",preso:false},
+ {img:"img/dolomiti.jpg",nome:"Gita alle Dolomiti",categoria:"Esperienze",emoji:"🏔️",descrizione:"Una giornata tra montagne, panorami e nuove avventure.",prezzo:"Indefinito",priorita:3,link:"",preso:false},
+ {img:"img/casio.jpg",nome:"Orologio Casio AE-1200WH",categoria:"Accessori",emoji:"⌚",descrizione:"Casio Collezione, orologio da uomo AE-1200WH.",prezzo:"44 €",priorita:2,link:"https://www.amazon.it/dp/B0DN6LF6G2",preso:false},
+ {img:"img/album-pokemon.jpg",nome:"Album toploader Pokémon",categoria:"Collezione",emoji:"🃏",descrizione:"No ad anelli, grazie.",prezzo:"circa 20 €",priorita:2,link:"https://www.amazon.it/dp/B0F387CZF3",preso:false},
+ {nome:"Waveshare ESP32-S3 touchscreen 2,8″",categoria:"Elettronica",emoji:"🖥️",descrizione:"Scheda di sviluppo Waveshare ESP32-S3 con schermo touch IPS da 2,8″, WiFi e Bluetooth.",prezzo:"33,99 €",priorita:2,link:"https://it.aliexpress.com/item/1005008364747035.html",preso:false},
+ {nome:"Kodak Charmera, fotocamera portachiavi",categoria:"Elettronica",emoji:"📷",descrizione:"Mini fotocamera digitale Kodak a forma di portachiavi, 1,6 megapixel, blind box con design a sorpresa.",prezzo:"42,99 €",priorita:2,link:"https://www.mediaworld.it/it/product/_kodak-charmera-2-megapixel-blind-box-530911.html",preso:false},
+ {nome:"Mi va bene tutto",categoria:"Dal cuore",emoji:"❤️",descrizione:"L’importante è che sia fatto con il cuore: il regalo più grande siete tutti voi.",prezzo:"Non ha prezzo",priorita:3,grande:true,link:"",preso:false}
+];
+/* ===================== da qui in giù non serve toccare ===================== */
+
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const cats = [...new Set(REGALI.filter(r => !r.grande).map(r => r.categoria))];
+const hues = [352,160,210,38,275,190,20,130];
+const colore = c => `hsl(${hues[cats.indexOf(c) % hues.length]} 55% 42%)`;
+const livelli = {3:"Lo desidero molto",2:"Mi farebbe piacere",1:"Se capita"};
+let filtro = "Tutti";
+
+function visibili(){
+ return REGALI.map((r,i)=>({...r,i}))
+  .filter(r => r.grande || filtro === "Tutti" || r.categoria === filtro)
+  .sort((a,b) => (!!b.grande - !!a.grande) || (a.preso - b.preso) || (b.priorita - a.priorita) || (a.i - b.i));
+}
+
+function renderChips(){
+ $("#chips").innerHTML = ["Tutti",...cats].map(c =>
+  `<button class="chip" type="button" data-c="${esc(c)}" aria-pressed="${c===filtro}">${esc(c)}</button>`).join("");
+}
+
+function renderGrid(){
+ $("#grid").innerHTML = visibili().map(r => {
+  const cuori = "♥".repeat(r.priorita) + `<i>${"♥".repeat(3 - r.priorita)}</i>`;
+  return `<article class="gift ${r.preso ? "preso" : ""} ${r.grande ? "grande" : ""}" data-i="${r.i}" style="--c:${r.grande ? "#d2334f" : colore(r.categoria)}">
+   <button class="paper" type="button" aria-expanded="false" aria-label="Scarta il regalo: ${esc(r.nome)}">
+    <span class="rv"></span><span class="rh"></span><span class="tag">${esc(r.emoji)}</span>
+    ${r.preso ? '<span class="stamp">Già preso</span>' : ""}
+   </button>
+   <div class="info">
+    <div class="cat">${esc(r.categoria)}</div>
+    <h3>${esc(r.nome)}</h3>
+    <div class="love" role="img" aria-label="${livelli[r.priorita] || ""}">${cuori}</div>
+    ${r.grande ? `<p class="frase">${esc(r.descrizione)}</p>` : ""}
+    <div class="more"><div>
+     ${r.img ? `<img class="foto" src="${esc(r.img)}" alt="${esc(r.nome)}" loading="lazy" onerror="this.remove()">` : ""}${r.grande ? "" : `<p>${esc(r.descrizione)}</p>`}
+     <div class="price">${esc(r.prezzo || "Prezzo da definire")}</div>
+     <div class="acts" style="margin-top:${r.link?12:0}px">
+      ${r.link ? `<a class="ghost" href="${esc(r.link)}" target="_blank" rel="noopener">Guarda il prodotto</a>` : ""}
+     </div>
+    </div></div>
+   </div>
+  </article>`;
+ }).join("");
+ const presi = REGALI.filter(r => r.preso).length;
+ $("#prog").textContent = presi ? `${presi} su ${REGALI.length} sono già stati presi` : `${REGALI.length} idee nella lista`;
+}
+
+function apri(card, conCoriandoli = true){
+ const aprire = !card.classList.contains("open");
+ document.querySelectorAll(".gift.open").forEach(c => {
+  c.classList.remove("open");
+  c.querySelector(".paper").setAttribute("aria-expanded","false");
+ });
+ if(!aprire) return;
+ card.classList.add("open");
+ card.querySelector(".paper").setAttribute("aria-expanded","true");
+ setTimeout(() => { const r = card.getBoundingClientRect(); if(r.bottom > innerHeight - 12 || r.top < 0) card.scrollIntoView({behavior: reduce ? "auto" : "smooth", block: "nearest"}); }, 450);
+ if(conCoriandoli){
+  const r = card.getBoundingClientRect();
+  boom(r.left + r.width/2, r.top + 60);
+ }
+}
+
+$("#grid").addEventListener("click", e => {
+ const p = e.target.closest(".paper");
+ if(p) apri(p.closest(".gift"));
+});
+$("#chips").addEventListener("click", e => {
+ const b = e.target.closest(".chip");
+ if(!b) return;
+ filtro = b.dataset.c; renderChips(); renderGrid();
+});
+$("#rand").addEventListener("click", () => {
+ const lista = visibili().filter(r => !r.preso);
+ if(!lista.length) return;
+ const r = lista[Math.floor(Math.random() * lista.length)];
+ const card = document.querySelector(`.gift[data-i="${r.i}"]`);
+ card.scrollIntoView({behavior: reduce ? "auto" : "smooth", block:"center"});
+ setTimeout(() => { if(!card.classList.contains("open")) apri(card); }, reduce ? 0 : 450);
+});
+
+/* Conto alla rovescia */
+function conto(){
+ const n = new Date(), y = n.getFullYear();
+ const box = $("#cd");
+ if(n.getMonth() === 11 && n.getDate() === 25){
+  box.className = "cd done"; box.textContent = "Buon Natale! 🎄"; return;
+ }
+ let t = new Date(y,11,25);
+ if(n > t) t = new Date(y+1,11,25);
+ let s = Math.floor((t - n)/1000);
+ const v = [["giorni",Math.floor(s/86400)],["ore",Math.floor(s%86400/3600)],["minuti",Math.floor(s%3600/60)],["secondi",s%60]];
+ box.className = "cd";
+ box.innerHTML = v.map(([l,x]) => `<div><b>${String(x).padStart(2,"0")}</b><span>${l}</span></div>`).join("");
+}
+
+/* Neve nell'header */
+const sc = $("#snow"), sx = sc.getContext("2d"); let fiocchi = [];
+function nevePrepara(){
+ sc.width = sc.parentElement.offsetWidth; sc.height = sc.parentElement.offsetHeight;
+ fiocchi = Array.from({length: Math.round(sc.width/14)}, () => ({x:Math.random()*sc.width,y:Math.random()*sc.height,r:1+Math.random()*2.6,v:.3+Math.random()*.9,o:Math.random()*6}));
+}
+function neve(t){
+ sx.clearRect(0,0,sc.width,sc.height); sx.fillStyle = "rgba(255,255,255,.85)";
+ for(const f of fiocchi){
+  f.y += f.v; f.x += Math.sin(t/1500 + f.o) * .4;
+  if(f.y > sc.height + 4){ f.y = -4; f.x = Math.random()*sc.width; }
+  sx.beginPath(); sx.arc(f.x,f.y,f.r,0,7); sx.fill();
+ }
+ if(!reduce) requestAnimationFrame(neve);
+}
+
+/* Coriandoli quando scarti un pacco */
+const cv = $("#confetti"), cx = cv.getContext("2d"); let ps = [], raf = 0;
+function boom(x,y){
+ if(reduce) return;
+ cv.width = innerWidth; cv.height = innerHeight;
+ const col = ["#d2334f","#f0b94a","#2f8f6b","#4f8cff","#ffffff"];
+ for(let i=0;i<46;i++) ps.push({x,y,vx:(Math.random()-.5)*9,vy:-Math.random()*9-2,s:4+Math.random()*5,c:col[i%5],r:Math.random()*6,vr:(Math.random()-.5)*.4,l:60+Math.random()*30});
+ if(!raf) raf = requestAnimationFrame(coriandoli);
+}
+function coriandoli(){
+ cx.clearRect(0,0,cv.width,cv.height);
+ ps = ps.filter(p => p.l-- > 0);
+ for(const p of ps){
+  p.vy += .35; p.x += p.vx; p.y += p.vy; p.r += p.vr;
+  cx.save(); cx.translate(p.x,p.y); cx.rotate(p.r); cx.fillStyle = p.c; cx.globalAlpha = Math.min(1,p.l/25);
+  cx.fillRect(-p.s/2,-p.s/3,p.s,p.s*.6); cx.restore();
+ }
+ raf = ps.length ? requestAnimationFrame(coriandoli) : 0;
+ if(!ps.length) cx.clearRect(0,0,cv.width,cv.height);
+}
+
+renderChips(); renderGrid(); conto(); setInterval(conto,1000);
+nevePrepara(); requestAnimationFrame(neve);
+addEventListener("resize", nevePrepara);
+</script>
+</body>
+</html>

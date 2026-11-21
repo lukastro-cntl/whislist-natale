@@ -1,0 +1,107 @@
+[hidden]{display:none!important}
+/* Hero con gioco */
+.hero-in{display:grid;gap:28px}
+@media(min-width:900px){.hero-in{grid-template-columns:1.1fr 1fr;align-items:center}}
+.nav{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.nb{display:inline-flex;align-items:center;min-height:44px;padding:10px 16px;border:2px solid #fff;border-radius:12px;background:transparent;color:#fff;font-weight:700;text-decoration:none;cursor:pointer}
+.nb.hot{background:var(--gold);border-color:var(--gold);color:var(--night)}
+.game{width:100%;max-width:440px;justify-self:center;padding:10px;border-radius:20px;background:#ffffff14;border:1px solid #ffffff2e}
+.gh{display:flex;justify-content:space-between;padding:2px 6px 8px;font-weight:700;font-size:15px}
+#pupazzo{display:block;width:100%;height:auto;border-radius:14px;background:linear-gradient(#26407a,#101b34);touch-action:pan-y;cursor:grab}
+
+/* Foto regali */
+.foto{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px;margin-top:12px;background:var(--line)}
+
+/* Calendario dell'Avvento */
+.adv{background:#fff;border-top:3px solid var(--ink);border-bottom:3px solid var(--ink);padding:36px 20px 44px}
+.wrap{max-width:1080px;margin:0 auto}
+.adv h2{font-size:clamp(28px,5vw,40px)}
+.sub2{color:var(--mut);max-width:36em;margin:6px 0 0}
+.days{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:20px}
+@media(min-width:700px){.days{grid-template-columns:repeat(6,1fr);gap:14px}}
+.dy{position:relative;aspect-ratio:1;border:3px solid var(--ink);border-radius:16px;background:var(--berry);color:#fff;font:800 clamp(22px,6vw,34px) Fraunces,Georgia,serif;box-shadow:4px 4px 0 var(--ink);cursor:pointer;transition:transform .15s,box-shadow .15s}
+.dy:nth-child(even){background:#1f7a57}
+.dy.lock{filter:saturate(.3) brightness(1.15)}
+.dy.vista{background:var(--gold);color:var(--ink)}
+.dy:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
+.dy small{position:absolute;right:6px;bottom:4px;font-size:14px}
+
+/* Finestre */
+dialog{width:calc(100% - 28px);max-width:440px;border:3px solid var(--ink);border-radius:20px;padding:20px;background:#fff;color:var(--ink);box-shadow:6px 6px 0 var(--ink)}
+dialog::backdrop{background:#101b34cc}
+.in{animation:pop .5s ease}
+.in h3{font-size:24px;margin-bottom:8px}
+.chiudi{margin-top:16px;background:var(--night);border-color:var(--night);color:#fff}
+.mem{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.mc{aspect-ratio:1;border:3px solid var(--ink);border-radius:12px;background:var(--night2);color:#fff;font-size:30px;cursor:pointer;padding:0}
+.mc.up{background:#fff}
+.mc.ok{background:#d6f3e3}
+
+/* Letterina cartoon */
+.envb{display:block;margin:6px auto;padding:18px 34px;border:3px solid var(--ink);border-radius:16px;background:#f6d58e;box-shadow:5px 5px 0 var(--ink);font-size:72px;cursor:pointer;animation:wob 1.6s ease-in-out infinite}
+.envb span{display:block;margin-top:6px;font:700 15px Figtree,sans-serif}
+@keyframes wob{50%{transform:rotate(-4deg) scale(1.04)}}
+.ltr{padding:18px 18px 6px;border:3px solid var(--ink);border-radius:8px;box-shadow:6px 6px 0 var(--ink);background:#fffbea repeating-linear-gradient(transparent 0 31px,#cfe0f5 31px 32px);font:600 21px/32px Caveat,"Comic Sans MS",cursive;transform:rotate(-1deg);animation:pop .6s ease}
+.ltr p{margin:0 0 32px}
+.ltr .fm{text-align:right}
+
+/* ===== Grafica: stile cartoon coerente ===== */
+body{background-image:radial-gradient(#fff 2px,transparent 2.5px);background-size:32px 32px}
+.hero{padding-bottom:84px}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:46px;background:radial-gradient(circle at 40px 66px,var(--snow) 40px,transparent 41px) 0 0/80px 46px repeat-x;pointer-events:none}
+h1{text-shadow:4px 4px 0 var(--berry)}
+.cd div{background:#fff;color:var(--ink);border:3px solid var(--ink);box-shadow:4px 4px 0 var(--gold)}
+.cd span{color:var(--mut)}
+.game{background:var(--night2);border:3px solid #fff;box-shadow:6px 6px 0 var(--gold)}
+
+/* Regalo in grande */
+@keyframes beat{0%,28%,100%{transform:scale(1)}14%{transform:scale(1.12)}42%{transform:scale(1.08)}}
+
+/* Filtri e pacchi */
+.chip{border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink)}
+.chip[aria-pressed=true]{background:var(--berry);border-color:var(--ink);color:#fff}
+.rand{border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink)}
+.gift{border:3px solid var(--ink);border-radius:22px;box-shadow:6px 6px 0 var(--ink)}
+.gift:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--ink)}
+.gift.open{box-shadow:8px 8px 0 var(--c)}
+.paper{border-bottom:3px solid var(--ink)}
+.rv,.rh{border:2px solid var(--ink)}
+.tag{border:3px solid var(--ink)}
+.paper::after{content:"🎀";position:absolute;left:50%;top:6px;margin-left:-16px;font-size:30px;transition:opacity .3s,transform .4s}
+.open .paper::after{opacity:0;transform:translateY(-20px) rotate(30deg)}
+footer{padding:30px 20px 34px;background:var(--night);color:#c9d6f0}
+
+.frase{margin:8px 0 6px;font:700 clamp(20px,3.4vw,27px)/1.25 Fraunces,Georgia,serif}
+.gift.grande h3{font-size:26px}
+.gift.grande .paper,.gift.grande.open .paper{height:170px}
+.gift.grande .tag{width:84px;height:84px;margin:-42px 0 0 -42px;font-size:44px;animation:beat 1.4s ease-in-out infinite}
+@media(min-width:580px){.gift.grande{grid-column:span 2}}
+
+/* ALBERO-CSS:INIZIO */
+.sub3{margin:4px 0 12px;color:var(--mut)}
+.scena{position:relative;overflow:hidden;padding:12px 12px 16px;border:3px solid #0b1a33;border-radius:18px;color:#fff;background:radial-gradient(#ffffff66 1px,transparent 1.5px) 0 0/53px 53px,radial-gradient(#ffffff40 1px,transparent 1.5px) 26px 31px/79px 79px,linear-gradient(#0e1c3f,#223b74)}
+.scena::before{content:"";position:absolute;inset:0;background:radial-gradient(#fff 1.6px,transparent 2.2px) 0 0/68px 68px;opacity:.45;pointer-events:none;animation:nevica 9s linear infinite}
+@keyframes nevica{to{background-position:0 68px}}
+.hud{position:relative;z-index:3;display:flex;justify-content:space-between;font-weight:700;font-size:14px}
+.hud b{display:block;font:800 30px/1 Fraunces,Georgia,serif}
+.hud .dx{text-align:right}
+.albero2{position:relative;width:min(100%,300px);margin:2px auto 0}
+.alb{display:block;width:100%;height:auto}
+.star{transform-box:fill-box;transform-origin:center;animation:stella 1.8s ease-in-out infinite}
+@keyframes stella{50%{transform:scale(1.12) rotate(6deg);filter:drop-shadow(0 0 8px #f0b94a)}}
+.lu{position:absolute;z-index:2;width:19%;aspect-ratio:1;padding:0;border:3px solid #0b1a33;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ffffffaa 0 13%,transparent 14%),var(--l);opacity:.42;cursor:pointer;transform:translate(-50%,-50%);transition:opacity .1s,transform .1s,box-shadow .1s}
+.lu::before{content:"";position:absolute;left:50%;top:-9px;width:14px;height:9px;margin-left:-7px;border-radius:3px 3px 0 0;background:#0b1a33}
+.lu.on{opacity:1;transform:translate(-50%,-50%) scale(1.12);box-shadow:0 0 22px 8px var(--l)}
+.err .albero2{animation:scuoti .4s}
+.err .lu{filter:grayscale(.7)}
+@keyframes scuoti{25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.stato{position:relative;z-index:3;min-height:24px;margin:6px 0 0;text-align:center;font-weight:600}
+.go{position:relative;z-index:3;display:flex;align-items:center;justify-content:center;min-height:44px;margin:10px auto 0;padding:10px 24px;border:2px solid #0b1a33;border-radius:12px;background:#f0b94a;color:#16213a;font:700 16px Figtree,system-ui,sans-serif;box-shadow:3px 3px 0 #0b1a33;cursor:pointer}
+.go:active{transform:translate(2px,2px);box-shadow:1px 1px 0 #0b1a33}
+.over{position:absolute;inset:0;z-index:5;display:grid;place-content:center;justify-items:center;gap:4px;padding:16px;text-align:center;background:#0b1a33ee;animation:pop .5s ease}
+.over h3{margin:0;font:800 28px/1.1 Fraunces,Georgia,serif}
+.over p{margin:0}
+.over .big{font:800 64px/1 Fraunces,Georgia,serif;color:#f0b94a}
+.over .rec2{margin-top:6px;font-weight:700}
+.over .fin{margin-top:8px;font:700 17px/1.3 Fraunces,Georgia,serif}
+/* ALBERO-CSS:FINE */
